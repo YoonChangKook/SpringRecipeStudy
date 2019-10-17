@@ -21,6 +21,7 @@ public class CalculatorTest {
 	private static final Logger LOGGER = LoggerFactory.getLogger(CalculatorTest.class);
 	private static final double NUM1 = 10;
 	private static final double NUM2 = 20;
+	private static final double NEGATIVE_NUM = -10;
 	private static final double DELTA = 0.01;
 
 	@Autowired
@@ -49,5 +50,10 @@ public class CalculatorTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void divByZeroTest() {
 		calculator.div(NUM1, 0.0);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void negativeValueTest() {
+		calculator.add(NUM1, NEGATIVE_NUM);
 	}
 }
